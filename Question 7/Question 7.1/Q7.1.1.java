@@ -1,4 +1,8 @@
-{
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+class Q7.1.1{
     /*
      * Written by Zhang Mingxue
      * */
