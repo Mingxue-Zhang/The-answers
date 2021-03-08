@@ -1,5 +1,7 @@
 class Q6{
-
+     /*
+    * Written by Zhang Mingxue
+    * */
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         System.out.println("input the number of points in polygon");
