@@ -9,3 +9,53 @@
 18 17 Outside
 20 7 Outside
 
+7 11 Inside
+10 14 Inside
+11 4 Outside
+12 21 Outside
+16 3 Outside
+16 10 Inside
+17 4 Inside
+18 7 Inside
+18 17 Outside
+20 7 Outside
+
+How to get this result?
+Answer:
+
+This is based on 
+This method is based on radiographic ideas. In 2D graphics, points and graphics are only inside the graphics, outside of the graphics, or on the graph. 
+Therefore, the ray coming from the point is only intersecting or non-intersecting to the polygons. 
+The Non-intersecting ray is coincident if the ray is parallel to a certain one of the polygon. Thus, we can deal with this problem.
+
+First, consider intersecting the situation. The ray is only two situations that going through and going out. 
+It is impossible for a straight line to enter the polygon again from the inside or to pass through the polygon again from the outside. 
+That is, the case of crossing the boundary twice in a row must be a pair.
+Therefore, the last time the ray traverses the polygon boundary, it must pass through the polygon and reach the outside. So we can conclude:
+When the number of times the ray crosses the polygon boundary is an even number, the point is outside the polygon.
+When the number of times the ray crosses the polygon boundary is odd, the point is inside the polygon.
+
+We assume the line segment start point is (Sx, Sy), and the end point is (Ex, Ey).
+The test point is (Tx, Ty).
+The Tempx is the x-axis intersection of the line drawn at the test point and the line segment
+
+K = (Sy-Ey) / (Sx-Ex);
+B = ((Sx * Ey)-(Ex * Sy)) / (Sx-Ey);
+
+According to the formula (y = k * x + b)
+
+TempX = (Ty-B) / K
+TempX = (Ty-(((Sx * Ey)-(Ex * Sy)) / (Sx-Ey))) / ((Sy-Ey) / (Sx-Ex))
+TempX = ((Ty * (Sx-Ex))-((Sx * Ey)-(Ex * Sy))) / (Sy-Ey)
+TempX = ((Ty * (Sx-Ex))-((Sx * Ey)-(Ex * Sy)-(Ex * Ey) + (Ex * Ey))) / (Sy-Ey)
+TempX = ((Ty * (Sx-Ex))-((Ey * (Sx-Ex))-(Ex * (Ey-Sy)))) / (Sy-Ey)
+TempX = ((Ty * (Sx-Ex))-(Ey * (Sx-Ex)) + (Ex * (Ey-Sy))) / (Sy-Ey)
+TempX = (((Ty-Ey) * (Sx-Ex)) + (Ex * (Ey-Sy))) / (Sy-Ey)
+TempX = (((Ty-Ey) * (Sx-Ex)) / (Sy-Ey) + Ex
+TempX = (((Sx-Ex) * (Ty-Ey)) / (Sy-Ey) + Ex
+
+The case where the point is considered on the edge of polygons could be solved by computing whether the slope of the point and two vertices are equal or are 0.
+
+Finally, if the point is polygons vertices, we only need to make a simple judgment.
+ 
+ Ref: https://wrf.ecse.rpi.edu//Research/Short_Notes/pnpoly.html
