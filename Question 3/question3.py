@@ -8,9 +8,10 @@ train_data = pd.read_csv("train_data.txt", sep="\t")
 train_truth = pd.read_csv("train_truth.txt", sep="\t")
 test_data = pd.read_csv("test_data.txt", sep="\t")
 
-train_data = train_data[['x1','x2','x3']]
+train_data = train_data[['x1', 'x2', 'x3']]
+#print(train_data)
 y = train_truth['y']
-predict = test_data[['x1','x2','x3']]
+predict = test_data[['x1', 'x2', 'x3']]
 
 model = MLPRegressor(hidden_layer_sizes=(4, 4))
 # train
